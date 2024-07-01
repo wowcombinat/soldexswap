@@ -1,10 +1,9 @@
 import React from 'react';
 
-const tokens = [
+const mockTokens = [
   { symbol: 'SOL', name: 'Solana' },
   { symbol: 'USDC', name: 'USD Coin' },
   { symbol: 'RAY', name: 'Raydium' },
-  // Добавьте больше токенов по мере необходимости
 ];
 
 function TokenSelector({ label, selectedToken, onSelectToken }) {
@@ -14,14 +13,14 @@ function TokenSelector({ label, selectedToken, onSelectToken }) {
       <select
         value={selectedToken ? selectedToken.symbol : ''}
         onChange={(e) => {
-          const token = tokens.find(t => t.symbol === e.target.value);
+          const token = mockTokens.find(t => t.symbol === e.target.value);
           onSelectToken(token);
         }}
       >
         <option value="">Select a token</option>
-        {tokens.map((token) => (
+        {mockTokens.map((token) => (
           <option key={token.symbol} value={token.symbol}>
-            {token.symbol} - {token.name}
+            {token.name} ({token.symbol})
           </option>
         ))}
       </select>
