@@ -23,18 +23,20 @@ function Swap() {
             selectedToken={fromToken}
             onSelectToken={setFromToken}
           />
-          <TokenSelector
-            label="To"
-            selectedToken={toToken}
-            onSelectToken={setToToken}
-          />
           <input
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Amount"
           />
-          <button onClick={handleSwap}>Swap</button>
+          <TokenSelector
+            label="To"
+            selectedToken={toToken}
+            onSelectToken={setToToken}
+          />
+          <button onClick={handleSwap} disabled={!fromToken || !toToken || !amount}>
+            Swap
+          </button>
         </>
       ) : (
         <WalletMultiButton />
