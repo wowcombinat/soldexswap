@@ -3,6 +3,7 @@ import React from 'react';
 const tokens = [
   { symbol: 'SOL', name: 'Solana' },
   { symbol: 'USDC', name: 'USD Coin' },
+  { symbol: 'RAY', name: 'Raydium' },
   // Добавьте больше токенов по мере необходимости
 ];
 
@@ -20,7 +21,7 @@ function TokenSelector({ label, selectedToken, onSelectToken }) {
         <option value="">Select a token</option>
         {tokens.map((token) => (
           <option key={token.symbol} value={token.symbol}>
-            {token.name} ({token.symbol})
+            {token.symbol} - {token.name}
           </option>
         ))}
       </select>
